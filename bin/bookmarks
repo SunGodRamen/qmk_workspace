@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export QMK_DIR="/home/sungodra/user_space/code/qmk_workspace/"
+
+export ferris="$QMK_DIR/keyboards/ferris/keymaps/sungodra"
+
