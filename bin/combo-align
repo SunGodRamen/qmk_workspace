@@ -1,0 +1,14 @@
+#!/usr/bin/env bash 
+
+function combo-align () {
+  if [[ -z ${1+x} ]]; then
+    echo "combo file not specified"
+    return 1
+  fi
+  COMBO_FILE="$1"
+  sed -e "s/,\s\+/ /g" $COMBO_FILE > temp
+  column -t -s " " -L -l 3 temp > $COMBO_FILE
+  rm temp
+
+  return 0
+}
