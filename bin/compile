@@ -8,7 +8,7 @@ compile () {
   case $1 in
     "ferris")
       TARGET_DIR="$QMK_DIR/qmk_firmware/keyboards/ferris/keymaps/sungodra"
-      SOURCE_DIR="$QMK_DIR/sungodra/ferris/*"
+      SOURCE_DIR="$QMK_DIR/sungodra/ferris"
       KEYBOARD="ferris/0_2/compact"
       ;;
     *)
@@ -16,10 +16,11 @@ compile () {
       return 1
       ;;
   esac
-
+  
+  cd "$QMK_DIR/qmk_firmware"
   rm -r "$TARGET_DIR" 2> /dev/null
   mkdir "$TARGET_DIR"
-  cp -r "$SOURCE_DIR/*" "$TARGET_DIR"
+  cp -r "$SOURCE_DIR/." "$TARGET_DIR"
   echo $(qmk compile -kb "$KEYBOARD" -km sungodra) "$QMK_DIR/.build_log"
   rm -r "$TARGET_DIR" 
   
