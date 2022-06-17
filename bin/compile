@@ -1,28 +1,56 @@
 #!/usr/bin/env bash
 
-compile () {
-  TARGET_DIR=""
-  SOURCE_DIR=""
-  KEYBOARD=""
+QMK_DIR="/home/sungodra/user_space/code/qmk_workspace"
 
-  case $1 in
-    "ferris")
-      TARGET_DIR="$QMK_DIR/qmk_firmware/keyboards/ferris/keymaps/sungodra"
-      SOURCE_DIR="$QMK_DIR/sungodra/ferris"
-      KEYBOARD="ferris/0_2/compact"
-      ;;
-    *)
-      echo "No matching directory $1"
-      return 1
-      ;;
-  esac
-  
+compile () {
+  START_DIR="$PWD"
+  cd "$QMK_DIR/qmk_firmware"
+  KEYBOARD=$(setup_dir $1)
+  echo $(qmk compile -kb "$KEYBOARD" -km sungodra) "$QMK_DIR/.build_log"
+  cleanup_dir $1
+  cd "$START_DIR"
+  return 0
+}
+
+flash ()  {
+  START_DIR="$PWD"
+  cd "$QMK_DIR/qmk_firmware"
+  KEYBOARD=$(setup_dir $1)
+  echo $(qmk flash -kb "$KEYBOARD" -km sungodra) "$QMK_DIR/.build_log"
+  cleanup_dir $1
+  cd "$START_DIR"
+  return 0
+}
+
+setup_dir () {
+  TARGET_DIR="$QMK_DIR/qmk_firmware/keyboards/$1/keymaps/sungodra"
+  SOURCE_DIR="$QMK_DIR/sungodra/$1"
+  KEYBOARD=$( parse_args $1 )
+  if [[ $KEYBOARD == 1 ]]; then
+    return 1
+  fi
+
   cd "$QMK_DIR/qmk_firmware"
   rm -r "$TARGET_DIR" 2> /dev/null
   mkdir "$TARGET_DIR"
   cp -r "$SOURCE_DIR/." "$TARGET_DIR"
-  echo $(qmk compile -kb "$KEYBOARD" -km sungodra) "$QMK_DIR/.build_log"
-  rm -r "$TARGET_DIR" 
-  
+  echo "$KEYBOARD"
   return 0
 }
+
+cleanup_dir () {
+  rm -r "$TARGET_DIR" 
+}
+
+parse_args () {
+  case $1 in
+    "ferris")
+      echo "ferris/0_2/compact"
+      return 0
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+}
+ 
