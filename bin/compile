@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+compile () {
+  TARGET_DIR=""
+  SOURCE_DIR=""
+  KEYBOARD=""
+
+  case $1 in
+    "ferris")
+      TARGET_DIR="$QMK_DIR/qmk_firmware/keyboards/ferris/keymaps/sungodra"
+      SOURCE_DIR="$QMK_DIR/sungodra/ferris/*"
+      KEYBOARD="ferris/0_2/compact"
+      ;;
+    *)
+      echo "No matching directory $1"
+      return 1
+      ;;
+  esac
+
+  rm -r "$TARGET_DIR" 2> /dev/null
+  mkdir "$TARGET_DIR"
+  cp -r "$SOURCE_DIR/*" "$TARGET_DIR"
+  echo $(qmk compile -kb "$KEYBOARD" -km sungodra) "$QMK_DIR/.build_log"
+  rm -r "$TARGET_DIR" 
+  
+  return 0
+}
