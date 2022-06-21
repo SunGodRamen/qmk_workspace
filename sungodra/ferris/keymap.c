@@ -66,26 +66,26 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //                                                    DVORAK
 	[0] = LAYOUT(
-      KC_COLN,  KC_COMM,  KC_DOT, LT(10, KC_P), LT(7, KC_Y),    KC_F, KC_G,         KC_C,     KC_R,    KC_L,
-      KC_A,     KC_O,     KC_E,   LCTL_T(KC_U), KC_I,           KC_D, RCTL_T(KC_H), KC_T,     KC_N,    KC_S,
-      KC_DQT,   KC_Q,     KC_J,   KC_K,         KC_X,           KC_B, KC_M,         KC_W,     KC_V,    KC_Z,
+      KC_COLN,  KC_COMM,  KC_DOT, KC_P, LT(12, KC_Y),          KC_F, KC_G,         KC_C,     KC_R,    KC_L,
+      KC_A,     KC_O,     LCTL_T(KC_E), LALT_T(KC_U), KC_I,           KC_D, RALT_T(KC_H), RCTL_T(KC_T),     KC_N,    KC_S,
+      KC_DQT,   KC_Q,     KC_J,         KC_K,         KC_X,           KC_B, KC_M,         KC_W,     KC_V,    KC_Z,
   
-                  HYPR_T(LSFT(KC_TAB)), LSFT_T(KC_TAB),     LT(1, KC_SPACE), TT(2) 
+                  HYPR_T(LSFT(KC_TAB)), LSFT_T(KC_TAB),     LT(1, KC_SPACE), LT(2, KC_ESC) 
   ),
 
 //                                                     NAV
   [1] = LAYOUT(
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,   KC_TRNS, KC_TRNS,
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TGSFT, KC_LEFT,  KC_DOWN,   KC_UP,   KC_RGHT,
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_VIM,  KC_HOME,  KC_PGDN,   KC_PGUP, KC_END,
+      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_VIM, KC_LEFT,  KC_DOWN,   KC_UP,   KC_RGHT,
+      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_HOME,  KC_PGDN,   KC_PGUP, KC_END,
       
                                       KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS
         ),
 //                                                   MOUSE
   [2] = LAYOUT(
-      KC_TRNS,  KC_TRNS,  KC_WH_U,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_BTN1,  KC_TRNS,  KC_TRNS,
+      KC_TRNS,  KC_TRNS,  KC_WH_U,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
       KC_BTN4,  KC_BTN2,  KC_BTN3,  KC_BTN1,  KC_BTN5,    KC_TRNS,  KC_MS_L,  KC_MS_D,  KC_MS_U,  KC_MS_R,
-      KC_TRNS,  KC_WH_L,  KC_WH_D,  KC_WH_R,  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,
+      KC_TRNS,  KC_WH_L,  KC_WH_D,  KC_WH_R,  KC_TRNS,    KC_BTN4,  KC_BTN1,  KC_BTN3,  KC_BTN2,  KC_BTN5,
              
                                       KC_ACL0, KC_ACL2,   KC_TRNS, KC_TRNS
         ),
@@ -96,64 +96,83 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       STN_S2,   STN_KL,   STN_WL,   STN_RL,   STN_ST2,    STN_RR,   STN_PR,   STN_GR,   STN_SR,   STN_ZR,
 
                                         STN_A, STN_O,     STN_E, STN_U
-      ),  
+      ),        
 //                                                   SEQUENCER1
   [5] = LAYOUT(
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  TO(0),
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  SQ_SALL,  KC_TRNS,    SQ_ON,  SQ_TMPU,  SQ_RESU,  KC_TRNS,  KC_TRNS,
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  SQ_SCLR,  KC_TRNS,    SQ_OFF, SQ_TMPD, SQ_RESD,  KC_TRNS,  KC_TRNS,
+      KC_TRNS,  SQ_S(1),    SQ_S(2),  SQ_S(3),  SQ_S(4),    SQ_S(13),    SQ_S(14),  SQ_S(15),  SQ_S(16),  KC_NO,
+      SQ_RES_2, SQ_RES_2T,  SQ_RES_4, SQ_RES_4T, SQ_RES_8,  SQ_RES_8T,  SQ_RES_16,  SQ_RES_16T,  SQ_RES_32,  KC_TRNS,
+      KC_TRNS,  SQ_S(8),    SQ_S(7),  SQ_S(6),  SQ_S(5),    SQ_S(9),   SQ_S(10),    SQ_S(11), SQ_S(12),  KC_TRNS,
              
                                       KC_TRNS, KC_TRNS,   KC_TRNS, MO(6)
         ),
 //                                                   SEQUENCER2
   [6] = LAYOUT(
-      KC_TRNS,  SQ_S(1),    SQ_S(2),  SQ_S(3),  SQ_S(4),    SQ_S(13),    SQ_S(14),  SQ_S(15),  SQ_S(16),  KC_NO,
-      SQ_RES_2, SQ_RES_2T,  SQ_RES_4, SQ_RES_4T, SQ_RES_8,  SQ_RES_8T,  SQ_RES_16,  SQ_RES_16T,  SQ_RES_32,  KC_TRNS,
-      KC_TRNS,  SQ_S(8),    SQ_S(7),  SQ_S(6),  SQ_S(5),    SQ_S(9),   SQ_S(10),    SQ_S(11), SQ_S(12),  KC_TRNS,
+      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  TO(0),
+      KC_TRNS,  KC_TRNS,  KC_TRNS,  SQ_SALL,  KC_TRNS,    SQ_ON,  SQ_TMPU,  SQ_RESU,  KC_TRNS,  KC_TRNS,
+      KC_TRNS,  KC_TRNS,  KC_TRNS,  SQ_SCLR,  KC_TRNS,    SQ_OFF, SQ_TMPD, SQ_RESD,  KC_TRNS,  KC_TRNS,
              
                                       KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS
         ),
+
+//                                                   MIDI(0)
+  [7] = LAYOUT(  
+     MI_TOG,   MI_VELD,   MI_MODSD,  MI_TRNSD,  KC_VOLU,      KC_VOLD,  MI_TRNSU,  MI_MODSU,  MI_VELU,  TO(0),
+     MI_D_3,    MI_E_3,   MI_F_3,   MI_G_3,   MI_A_3,       MI_B_3,   MI_C_4,   MI_D_4,   MI_E_4,   MI_F_4,
+     MI_Cs_3,   MI_Ds_3,  MI_Fs_3,  MI_Gs_3,  MI_As_3,      MI_Cs_4,  MI_Cs_4,  MI_Cs_4,  MI_Cs_4,  MI_Cs_4,
+                                     MO(8),  MO(9),      MO(10), MO(11)
+        ),
+//                                                   MIDI(-2)
+  [8] = LAYOUT(  
+     MI_TOG,   MI_VELD,   MI_MODSD,  MI_TRNSD,  KC_VOLU,      KC_VOLD,  MI_TRNSU,  MI_MODSU,  MI_VELU,  TO(0),
+     MI_D_1,    MI_E_1,   MI_F_1,   MI_G_1,   MI_A_1,       MI_B_1,   MI_C_2,   MI_D_2,   MI_E_2,   MI_F_2,
+     MI_Cs_1,   MI_Ds_1,  MI_Fs_1,  MI_Gs_1,  MI_As_1,      MI_Cs_2,  MI_Cs_2,  MI_Cs_2,  MI_Cs_2,  MI_Cs_2,
+                                   KC_TRNS,   KC_TRNS,        KC_TRNS,  KC_TRNS  
+        ),
+//                                                   MIDI(-1)
+  [9] = LAYOUT(  
+     MI_TOG,   MI_VELD,   MI_MODSD,  MI_TRNSD,  KC_VOLU,      KC_VOLD,  MI_TRNSU,  MI_MODSU,  MI_VELU,  TO(0),
+     MI_D_2,    MI_E_2,   MI_F_2,   MI_G_2,   MI_A_2,       MI_B_2,   MI_C_3,   MI_D_3,   MI_E_3,   MI_F_3,
+     MI_Cs_2,   MI_Ds_2,  MI_Fs_2,  MI_Gs_2,  MI_As_2,      MI_Cs_3,  MI_Cs_3,  MI_Cs_3,  MI_Cs_3,  MI_Cs_3,
+                                      KC_TRNS,   KC_TRNS,        KC_TRNS,  KC_TRNS
+        ),
+//                                                   MIDI(1)
+  [10] = LAYOUT(  
+     MI_TOG,   MI_VELD,   MI_MODSD,  MI_TRNSD,  KC_VOLU,      KC_VOLD,  MI_TRNSU,  MI_MODSU,  MI_VELU,  TO(0),
+     MI_D_4,    MI_E_4,   MI_F_4,   MI_G_4,   MI_A_4,       MI_B_4,   MI_C_5,   MI_D_5,   MI_E_5,   MI_F_5,
+     MI_Cs_4,   MI_Ds_4,  MI_Fs_4,  MI_Gs_4,  MI_As_4,      MI_Cs_5,  MI_Cs_5,  MI_Cs_5,  MI_Cs_5,  MI_Cs_5,
+                                     KC_TRNS,   KC_TRNS,        KC_TRNS,  KC_TRNS
+      ),
+//                                                   MIDI(-3)
+  [11] = LAYOUT(  
+     MI_TOG,   MI_VELD,   MI_MODSD,  MI_TRNSD,                KC_VOLU,      KC_VOLD,  MI_TRNSU,  MI_MODSU,  MI_VELU,  TO(0),
+     MI_D,    MI_E,   MI_F,   MI_G,   MI_A,                    MI_B_1,     MI_C_1,     MI_D_1,       MI_E_1,     MI_F_1,
+     MI_Cs,   MI_Ds,  MI_Fs,  MI_Gs,  MI_As,                   MI_Cs_1,      MI_Cs_1,    MI_Cs_1,      MI_Cs_1,    MI_Cs_1,
+                               KC_TRNS,   KC_TRNS,        KC_TRNS,  KC_TRNS
+      ),
 //                                                FUNCTION1
-  [7] = LAYOUT(
+  [12] = LAYOUT(
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_F9,    KC_F10,      KC_TRNS,    KC_TRNS, KC_TRNS,
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_F1,     KC_F2,      KC_F3,      KC_F4,   KC_TRNS,
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_F5,     KC_F6,      KC_F7,      KC_F8,   KC_TRNS,
              
-                                      KC_TRNS, KC_TRNS,   MO(9), MO(8)
+                                      KC_TRNS, KC_TRNS,   MO(13), MO(14)
         ), 
 //                                                FUNCTION2
-  [8] = LAYOUT(
+  [13] = LAYOUT(
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_F19,     KC_F20,      KC_TRNS,     KC_TRNS,  KC_TRNS,
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_F11,     KC_F12,      KC_F13,      KC_F14,  KC_TRNS,
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_F15,     KC_F16,      KC_F17,      KC_F18,  KC_TRNS,
              
-                                      KC_TRNS, KC_TRNS,   MO(9), KC_TRNS
+                                      KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS
         ),
 //                                                FUNCTION3
-  [9] = LAYOUT(
+  [14] = LAYOUT(
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,     KC_TRNS,      KC_TRNS,     KC_TRNS,  KC_TRNS,
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_F21,     KC_F22,      KC_F23,      KC_F24,  KC_TRNS,
       KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    KC_TRNS,     KC_TRNS,      KC_TRNS,      KC_TRNS,  KC_TRNS,
              
                                       KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS
         ),
-//                                                PROGRAMMABLE1
-  [10] = LAYOUT(
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    PB_16,    PB_17,     PB_18,     PB_19,    KC_TRNS,
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    PB_6,     PB_7,      PB_8,      PB_9,     PB_10,
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    PB_11,    PB_12,     PB_13,     PB_14,    PB_15,
-             
-                                      KC_TRNS, KC_TRNS,   MO(11), KC_TRNS
-        ),
-//                                                PROGRAMMABLE2
-  [11] = LAYOUT(
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    PB_30,    PB_31,     PB_32,     KC_TRNS,    KC_TRNS,
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    PB_20,    PB_21,     PB_22,     PB_23,    PB_24,
-      KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,    PB_25,    PB_26,     PB_27,     PB_28,    PB_29,
-             
-                                      KC_TRNS, KC_TRNS,   KC_TRNS, KC_TRNS
-        ),
-
 };
 
 
@@ -207,7 +226,7 @@ void matrix_scan_user(void) {
     if ( ( epoch - sft_start_epochs ) >= const_sft_tgl_off_epochs ) {
       if ( (tick - sft_start_ticks ) >= const_sft_tgl_off_ticks ) {
         // shift held longer than a tap, untoggle when released
-        sft_tgl_on_timeout = true;
+        sft_tgl_off_timeout = true;
       }
     }
   } 
@@ -218,22 +237,22 @@ void matrix_scan_user(void) {
     leading = false;
     leader_end();
 
-    SEQ_ONE_KEY(LT(1, KC_SPACE)) {
+    SEQ_ONE_KEY(KC_SPACE) {
       if (layer_state_is(4)) {
-        layer_on(0);
+        layer_move(0);
       } else {
-        layer_on(4);
+        layer_move(4);
       }
     } else
 
-    SEQ_ONE_KEY(LSFT_T(KC_TAB)) {
-      if (layer_state_is(5)) {
-        layer_on(0);
+    SEQ_ONE_KEY(KC_TAB) {
+      if (layer_state_is(7)) {
+        layer_move(0);
       } else {
-        layer_on(5);
+        layer_move(7);
       }
     } else
-    SEQ_ONE_KEY(KC_B) {
+    SEQ_ONE_KEY(KC_T) {
       register_code(KC_LCTL);
       register_code(KC_GRAVE);
       unregister_code(KC_LCTL);
@@ -372,17 +391,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       break;
     case KC_TGSFT:
       if (record->event.pressed) {
-        if (!sft_toggled) {
+        if (!sft_toggled && !sft_pressed) {
           register_code(KC_RSFT);
           sft_pressed = true;
-          sft_toggled = true;
           sft_start_epochs = epoch;
           sft_start_ticks = tick;
           sft_tgl_on_timeout = false;
-        } else {
-          unregister_code(KC_RSFT);
-          sft_toggled = false;
-        }
+        } 
+        
       } else {
         sft_pressed = false;
         if ( sft_tgl_on_timeout ) {
@@ -419,8 +435,7 @@ uint16_t get_combo_term(uint16_t index, combo_t *combo) {
         case FN_DEL:
         case FN_ENTER_L:
         case FN_ENTER_R:
-        case FN_TAB:
-        case FN_SFT_TAB:
+        case FN_CTL_TAB:
         case FN_ESC_R:
         case FN_ESC_L:
         case FN_VOLUP:
