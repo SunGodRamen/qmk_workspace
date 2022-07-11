@@ -10,15 +10,6 @@ const key_override_t s_dquote_override = ko_make_basic(MOD_MASK_SHIFT, KC_DQUO, 
 const key_override_t s_minus_override = ko_make_basic(MOD_MASK_SHIFT, KC_MINS, KC_PLUS);
 const key_override_t s_lt_override = ko_make_basic(MOD_MASK_SHIFT, KC_LT, KC_GT);
 
-const key_override_t s_lbracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_LBRC, KC_RBRC);
-const key_override_t s_lcurlbracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_LCBR, KC_RCBR);
-const key_override_t s_lparenths_override = ko_make_basic(MOD_MASK_SHIFT, KC_LPRN, KC_RPRN);
-const key_override_t s_rbracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_RBRC, KC_LBRC);
-const key_override_t s_rcurlbracket_override = ko_make_basic(MOD_MASK_SHIFT, KC_RCBR, KC_LCBR);
-const key_override_t s_rparenths_override = ko_make_basic(MOD_MASK_SHIFT, KC_RPRN, KC_LPRN);
-const key_override_t s_pipe_override = ko_make_basic(MOD_MASK_SHIFT, KC_PIPE, KC_AMPR);
-const key_override_t s_space_override = ko_make_basic(MOD_MASK_SHIFT,LT(1, KC_SPACE), LSFT(KC_TAB));
-
 const key_override_t a_unds_override = ko_make_basic(MOD_MASK_ALT, KC_UNDS, KC_TILD);
 const key_override_t a_s_override = ko_make_basic(MOD_MASK_ALT, KC_S, KC_DLR);
 const key_override_t a_a_override = ko_make_basic(MOD_MASK_ALT, KC_A, KC_AT);
@@ -56,10 +47,6 @@ const key_override_t **key_overrides = (const key_override_t *[]){
 
 enum custom_keycodes {
   RGB_SLD = SAFE_RANGE,
-  KC_VIM,
-  KC_TMPI,
-  KC_WRIT,
-  KC_TGSFT,
 };
 
 
