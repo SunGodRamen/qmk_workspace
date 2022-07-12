@@ -1,11 +1,15 @@
+COMB(LYR_NAV,        TT(1),      RSFT_T(KC_SPACE), KC_N ) 
+COMB(LYR_PARENS,        TT(3),   RSFT_T(KC_SPACE), KC_T ) 
+
 COMB(LYR_MOUSE,        TT(2),       RSFT_T(KC_SPACE), KC_S ) 
 COMB(MS_BTN2,        KC_BTN2,       KC_BTN1, KC_BTN3 ) 
 
-COMB(LYR_NAV,        TT(1),      RSFT_T(KC_SPACE), KC_H, KC_N ) 
-
 COMB(FN_BSPCE,        KC_BSPACE,       KC_H, KC_T )
 COMB(FN_DEL,          KC_DEL,          KC_E, KC_U )
-COMB(FN_ENTER,        KC_ENTER,        KC_M, RGUI_T(KC_W))
+COMB(FN_ENTER,        KC_ENTER,        KC_M, RGUI_T(KC_W) )
+
+COMB(FN_CAPS,          KC_CAPS,          RSFT_T(KC_SPACE), KC_C )
+COMB(FN_CAPS_W,          CAPSWRD,          RSFT_T(KC_SPACE), KC_W )
 
 COMB(FN_LEAD_L,         KC_LEAD,         KC_E, RGUI_T(KC_J) )
 COMB(FN_LEAD_R,         KC_LEAD,         KC_T, RGUI_T(KC_W) )
@@ -16,24 +20,24 @@ COMB(FN_VOLUP,        KC_VOLU,         KC_U, KC_P )
 COMB(FN_VOLDN,        KC_VOLD,         KC_U, KC_K )
 
 
-COMB(NUM_0,           KC_0,            RALT_T(KC_TAB), KC_I ) 
-COMB(NUM_1,           KC_1,            RALT_T(KC_TAB), KC_U)
-COMB(NUM_2,           KC_2,            RALT_T(KC_TAB), KC_E ) 
-COMB(NUM_4,           KC_4,            RALT_T(KC_TAB), KC_O )
-COMB(NUM_8,           KC_8,            RALT_T(KC_TAB), KC_A )
+COMB(NUM_0,           KC_0,            LSFT_T(KC_TAB), KC_I ) 
+COMB(NUM_1,           KC_1,            LSFT_T(KC_TAB), KC_U)
+COMB(NUM_2,           KC_2,            LSFT_T(KC_TAB), KC_E ) 
+COMB(NUM_4,           KC_4,            LSFT_T(KC_TAB), KC_O )
+COMB(NUM_8,           KC_8,            LSFT_T(KC_TAB), KC_A )
                                        
-COMB(NUM_3,           KC_3,            RALT_T(KC_TAB), KC_U, KC_E ) 
-COMB(NUM_5,           KC_5,            RALT_T(KC_TAB), KC_U, KC_O )
-COMB(NUM_6,           KC_6,            RALT_T(KC_TAB), KC_E, KC_O ) 
-COMB(NUM_7,           KC_7,            RALT_T(KC_TAB), KC_U, KC_E, KC_O )
-COMB(NUM_9,           KC_9,            RALT_T(KC_TAB), KC_U, KC_A )
+COMB(NUM_3,           KC_3,            LSFT_T(KC_TAB), KC_U, KC_E ) 
+COMB(NUM_5,           KC_5,            LSFT_T(KC_TAB), KC_U, KC_O )
+COMB(NUM_6,           KC_6,            LSFT_T(KC_TAB), KC_E, KC_O ) 
+COMB(NUM_7,           KC_7,            LSFT_T(KC_TAB), KC_U, KC_E, KC_O )
+COMB(NUM_9,           KC_9,            LSFT_T(KC_TAB), KC_U, KC_A )
                                        
-SUBS(NUM_10,          "10",            RALT_T(KC_TAB), KC_E, KC_A ) 
-SUBS(NUM_11,          "11",            RALT_T(KC_TAB), KC_U, KC_E, KC_A )
-SUBS(NUM_12,          "12",            RALT_T(KC_TAB), KC_O, KC_A ) 
-SUBS(NUM_13,          "13",            RALT_T(KC_TAB), KC_U, KC_O, KC_A )
-SUBS(NUM_14,          "14",            RALT_T(KC_TAB), KC_E, KC_O, KC_A )
-SUBS(NUM_15,          "15",            RALT_T(KC_TAB), KC_U, KC_E, KC_O, KC_A )
+SUBS(NUM_10,          "10",            LSFT_T(KC_TAB), KC_E, KC_A ) 
+SUBS(NUM_11,          "11",            LSFT_T(KC_TAB), KC_U, KC_E, KC_A )
+SUBS(NUM_12,          "12",            LSFT_T(KC_TAB), KC_O, KC_A ) 
+SUBS(NUM_13,          "13",            LSFT_T(KC_TAB), KC_U, KC_O, KC_A )
+SUBS(NUM_14,          "14",            LSFT_T(KC_TAB), KC_E, KC_O, KC_A )
+SUBS(NUM_15,          "15",            LSFT_T(KC_TAB), KC_U, KC_E, KC_O, KC_A )
                                        
 
 COMB(SYMB_MINS,       KC_MINS,         LGUI_T(KC_J), KC_K )
