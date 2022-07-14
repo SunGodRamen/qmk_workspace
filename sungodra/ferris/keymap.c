@@ -1,7 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "g/keymap_combo.h" 
 #include "keymap_steno.h" 
-#include "stdio.h"
 
 #include "overrides/overrides.h"
 
@@ -82,26 +81,4 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 };
 
-//                                                                  TIMER  
-//Timer variables
-uint32_t const_time_max = 2147483646;
-uint32_t tick = 0;
-uint32_t epoch = 0;
-
-//Timer strings
-char tick_str[32];
-char epoch_str[32];
-
-void matrix_scan_user(void) {
-  if ( tick < const_time_max ) {
-    tick = tick+1; 
-  } else {
-    tick = 0;
-    if ( epoch < const_time_max ) {
-      epoch = epoch+1;
-    } else {
-      epoch = 0;
-    }
-  }
- } 
 
